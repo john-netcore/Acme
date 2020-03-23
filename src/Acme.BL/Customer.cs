@@ -12,7 +12,22 @@ namespace Acme.BL
         {
             get
             {
-                return LastName + ", " + FirstName;
+                if (string.IsNullOrWhiteSpace(FirstName) && string.IsNullOrWhiteSpace(LastName))
+                {
+                    return string.Empty;
+                }
+                else if (string.IsNullOrWhiteSpace(FirstName))
+                {
+                    return LastName;
+                }
+                else if (string.IsNullOrWhiteSpace(LastName))
+                {
+                    return FirstName;
+                }
+                else
+                {
+                    return LastName + ", " + FirstName;
+                }
             }
         }
 
