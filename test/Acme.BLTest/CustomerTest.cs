@@ -15,7 +15,7 @@ namespace Acme.BLTest
                 FirstName = "Balbo",
                 LastName = "Biggins"
             };
-            var expected = "Balbo Biggins";
+            var expected = "Biggins, Balbo";
 
             //Act
             var actual = customer.FullName;
