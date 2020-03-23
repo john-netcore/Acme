@@ -12,7 +12,7 @@ namespace Acme.BL
         {
             get
             {
-                return FirstName + " " + LastName;
+                return LastName + ", " + FirstName;
             }
         }
 
