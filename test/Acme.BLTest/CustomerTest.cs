@@ -95,5 +95,77 @@ namespace Acme.BLTest
             //Assert
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void FullNameWithNullAsBothNamesTest()
+        {
+            //Arrange
+            Customer customer = new Customer
+            {
+                FirstName = null,
+                LastName = null
+            };
+            var expected = string.Empty;
+
+            //Act
+            var actual = customer.FullName;
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void FullNameWithSpacesAsFirstNameTest()
+        {
+            //Arrange
+            Customer customer = new Customer
+            {
+                FirstName = "    ",
+                LastName = "Baggins"
+            };
+            var expected = "Baggins";
+
+            //Act
+            var actual = customer.FullName;
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void FullNameWithSpacesAsLastNameTest()
+        {
+            //Arrange
+            Customer customer = new Customer
+            {
+                FirstName = "Bilbo",
+                LastName = "      "
+            };
+            var expected = "Bilbo";
+
+            //Act
+            var actual = customer.FullName;
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void FullNameWithSpacesBothNamesTest()
+        {
+            //Arrange
+            Customer customer = new Customer
+            {
+                FirstName = "   ",
+                LastName = "      "
+            };
+            var expected = string.Empty;
+
+            //Act
+            var actual = customer.FullName;
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }
