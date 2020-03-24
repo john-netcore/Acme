@@ -34,7 +34,7 @@ namespace Acme.BL
         public bool Validate()
         {
             bool isValid = true;
-            if (string.IsNullOrWhiteSpace(FirstName))
+            if (string.IsNullOrWhiteSpace(EmailAddress))
                 isValid = false;
             if (string.IsNullOrWhiteSpace(LastName))
                 isValid = false;
