@@ -4,6 +4,16 @@ namespace Acme.BL
 {
     public class Customer
     {
+        public Customer()
+        {
+
+        }
+
+        public Customer(int customerID)
+        {
+            CustomerID = customerID;
+        }
+
         public int CustomerID { get; private set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
