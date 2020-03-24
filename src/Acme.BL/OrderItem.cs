@@ -19,16 +19,6 @@ namespace Acme.BL
         public int Quantity { get; set; }
         public decimal? PurchasePrice { get; set; }
 
-        public OrderItem Retrieve()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Validate()
         {
             bool isValid = true;

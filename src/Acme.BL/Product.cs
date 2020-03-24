@@ -26,16 +26,6 @@ namespace Acme.BL
 
         public decimal? CurrentPrice { get; set; }
 
-        public Product Retrieve()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Validate()
         {
             bool isValid = true;

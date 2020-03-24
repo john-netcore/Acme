@@ -19,16 +19,6 @@ namespace Acme.BL
         // DateTimeOFfset type is good for handling DateTimes for different Time zones (For comparing dates from different Time zones).
         public DateTimeOffset? OrderDate { get; set; }
 
-        public Order Retrieve()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Validate()
         {
             bool isValid = true;
