@@ -167,5 +167,155 @@ namespace Acme.BLTest
             //Assert
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void FirstAndLastNameCorrectTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = "Balbo",
+                LastName = "Baggins"
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.True(isValid);
+        }
+
+        [Fact]
+        public void EmptyFirstNameTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = "",
+                LastName = "Baggins"
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.False(isValid);
+        }
+
+        [Fact]
+        public void EmptyLastNameTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = "Bilbo",
+                LastName = ""
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.False(isValid);
+        }
+
+        [Fact]
+        public void FirstAndLastNameEmptyTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = "",
+                LastName = ""
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.False(isValid);
+        }
+
+        [Fact]
+        public void FirstNameNullTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = null,
+                LastName = "Baggins"
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.False(isValid);
+        }
+
+        [Fact]
+        public void LastNameNullTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = "Bilbo",
+                LastName = null
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.False(isValid);
+        }
+
+        [Fact]
+        public void FirstAndLastNameNullTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = null,
+                LastName = null
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.False(isValid);
+        }
+
+        [Fact]
+        public void SpacesFirstNameTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = "         ",
+                LastName = "Baggins"
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.False(isValid);
+        }
+
+        [Fact]
+        public void SpacesLastNameTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = "Bilbo",
+                LastName = "          "
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.False(isValid);
+        }
+
+        [Fact]
+        public void FirstAndLastNameSpacesTest()
+        {
+            //Given
+            var customer = new Customer
+            {
+                FirstName = "        ",
+                LastName = "       "
+            };
+            //When
+            bool isValid = customer.Validate();
+            //Then
+            Assert.False(isValid);
+        }
     }
 }
