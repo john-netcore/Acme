@@ -31,5 +31,15 @@ namespace Acme.BL
             }
         }
 
+        public bool Validate()
+        {
+            bool isValid = true;
+            if (string.IsNullOrWhiteSpace(FirstName))
+                isValid = false;
+            if (string.IsNullOrWhiteSpace(LastName))
+                isValid = false;
+
+            return isValid;
+        }
     }
 }
