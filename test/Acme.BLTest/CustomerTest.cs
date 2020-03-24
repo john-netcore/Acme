@@ -13,9 +13,9 @@ namespace Acme.BLTest
             Customer customer = new Customer
             {
                 FirstName = "Balbo",
-                LastName = "Biggins"
+                LastName = "Baggins"
             };
-            var expected = "Biggins, Balbo";
+            var expected = "Baggins, Balbo";
 
             //Act
             var actual = customer.FullName;
@@ -31,9 +31,9 @@ namespace Acme.BLTest
             Customer customer = new Customer
             {
                 FirstName = String.Empty,
-                LastName = "Biggins"
+                LastName = "Baggins"
             };
-            var expected = "Biggins";
+            var expected = "Baggins";
 
             //Act
             var actual = customer.FullName;
@@ -67,9 +67,9 @@ namespace Acme.BLTest
             Customer customer = new Customer
             {
                 FirstName = null,
-                LastName = "Biggins"
+                LastName = "Baggins"
             };
-            var expected = "Biggins";
+            var expected = "Baggins";
 
             //Act
             var actual = customer.FullName;
@@ -169,13 +169,13 @@ namespace Acme.BLTest
         }
 
         [Fact]
-        public void FirstAndLastNameCorrectTest()
+        public void ValidateIsValid()
         {
             //Given
             var customer = new Customer
             {
-                FirstName = "Balbo",
-                LastName = "Baggins"
+                LastName = "Baggins",
+                EmailAddress = "@microsoft.com"
             };
             //When
             bool isValid = customer.Validate();
@@ -184,12 +184,12 @@ namespace Acme.BLTest
         }
 
         [Fact]
-        public void EmptyFirstNameTest()
+        public void ValidateInvalidEmail()
         {
             //Given
             var customer = new Customer
             {
-                FirstName = "",
+                EmailAddress = "",
                 LastName = "Baggins"
             };
             //When
@@ -199,13 +199,13 @@ namespace Acme.BLTest
         }
 
         [Fact]
-        public void EmptyLastNameTest()
+        public void ValidateInvalidLastName()
         {
             //Given
             var customer = new Customer
             {
-                FirstName = "Bilbo",
-                LastName = ""
+                EmailAddress = "baggins@microsoft.com",
+                LastName = "     "
             };
             //When
             bool isValid = customer.Validate();
@@ -214,103 +214,13 @@ namespace Acme.BLTest
         }
 
         [Fact]
-        public void FirstAndLastNameEmptyTest()
+        public void ValidateInvalidEmailAndLastName()
         {
             //Given
             var customer = new Customer
             {
-                FirstName = "",
-                LastName = ""
-            };
-            //When
-            bool isValid = customer.Validate();
-            //Then
-            Assert.False(isValid);
-        }
-
-        [Fact]
-        public void FirstNameNullTest()
-        {
-            //Given
-            var customer = new Customer
-            {
-                FirstName = null,
-                LastName = "Baggins"
-            };
-            //When
-            bool isValid = customer.Validate();
-            //Then
-            Assert.False(isValid);
-        }
-
-        [Fact]
-        public void LastNameNullTest()
-        {
-            //Given
-            var customer = new Customer
-            {
-                FirstName = "Bilbo",
+                EmailAddress = "   ",
                 LastName = null
-            };
-            //When
-            bool isValid = customer.Validate();
-            //Then
-            Assert.False(isValid);
-        }
-
-        [Fact]
-        public void FirstAndLastNameNullTest()
-        {
-            //Given
-            var customer = new Customer
-            {
-                FirstName = null,
-                LastName = null
-            };
-            //When
-            bool isValid = customer.Validate();
-            //Then
-            Assert.False(isValid);
-        }
-
-        [Fact]
-        public void SpacesFirstNameTest()
-        {
-            //Given
-            var customer = new Customer
-            {
-                FirstName = "         ",
-                LastName = "Baggins"
-            };
-            //When
-            bool isValid = customer.Validate();
-            //Then
-            Assert.False(isValid);
-        }
-
-        [Fact]
-        public void SpacesLastNameTest()
-        {
-            //Given
-            var customer = new Customer
-            {
-                FirstName = "Bilbo",
-                LastName = "          "
-            };
-            //When
-            bool isValid = customer.Validate();
-            //Then
-            Assert.False(isValid);
-        }
-
-        [Fact]
-        public void FirstAndLastNameSpacesTest()
-        {
-            //Given
-            var customer = new Customer
-            {
-                FirstName = "        ",
-                LastName = "       "
             };
             //When
             bool isValid = customer.Validate();
