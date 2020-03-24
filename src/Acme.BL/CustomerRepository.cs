@@ -4,6 +4,11 @@ namespace Acme.BL
     {
         public Customer Retrieve(int customerID)
         {
+            if (customerID != 1)
+            {
+                return null;
+            }
+
             return new Customer(customerID)
             {
                 FirstName = "Frodo",
