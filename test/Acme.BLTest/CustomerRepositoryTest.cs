@@ -25,6 +25,17 @@ namespace Acme.BLTest
         }
 
         [Fact]
+        public void RetrieveNonExistingCustomerTest()
+        {
+            //Given
+            var repository = new CustomerRepository();
+            //When
+            var actual = repository.Retrieve(2);
+            //Then
+            Assert.Null(actual);
+        }
+
+        [Fact]
         public void SaveValidCustomerTest()
         {
             //Given
