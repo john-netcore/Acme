@@ -1,5 +1,6 @@
 using Xunit;
 using Acme.BL;
+using System.Collections.Generic;
 
 namespace Acme.BLTest
 {
@@ -14,7 +15,22 @@ namespace Acme.BLTest
             {
                 FirstName = "Frodo",
                 LastName = "Baggins",
-                EmailAddress = "baggins@hotmail.com"
+                EmailAddress = "baggins@hotmail.com",
+                Addresses = new List<Address>()
+                {
+                    new Address(1)
+                    {
+                        StreetLine1 = "Fågelviksvägen 1",
+                        City = "Stockholm",
+                        PostalCode = "14553"
+                    },
+                    new Address(2)
+                    {
+                        StreetLine1 = "Ankvägen",
+                        City = "Ankeborg",
+                        PostalCode = "14575"
+                    }
+                }
             };
             //When
             var actual = repository.Retrieve(1);
@@ -22,6 +38,8 @@ namespace Acme.BLTest
             Assert.Equal(expected.CustomerID, actual.CustomerID);
             Assert.Equal(expected.FullName, actual.FullName);
             Assert.Equal(expected.EmailAddress, actual.EmailAddress);
+            Assert.Equal(expected.Addresses[0].PostalCode, actual.Addresses[0].PostalCode);
+            Assert.Equal(expected.Addresses[1].PostalCode, actual.Addresses[1].PostalCode);
         }
 
         [Fact]
