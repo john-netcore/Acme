@@ -42,12 +42,30 @@ namespace Acme.BLTest
             var product = new Product(2)
             {
                 Name = "Giant mouse trap",
-                CurrentPrice = 1099.99M
+                CurrentPrice = 1000M,
+                HasChanges = true
             };
             //When
-            bool isSaved = repository.Save(product);
+            bool success = repository.Save(product);
             //Then
-            Assert.True(isSaved);
+            Assert.True(success);
+        }
+
+        [Fact]
+        public void SaveInvalidProductTest()
+        {
+            //Given
+            var repository = new ProductRepository();
+            var product = new Product(2)
+            {
+                Name = "Giant mouse trap",
+                CurrentPrice = null,
+                HasChanges = true
+            };
+            //When
+            bool success = repository.Save(product);
+            //Then
+            Assert.False(success);
         }
     }
 }
