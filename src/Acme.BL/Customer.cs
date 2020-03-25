@@ -1,10 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace Acme.BL
 {
     public class Customer
     {
-        public Customer()
+        public Customer() : this(0)
         {
 
         }
@@ -12,14 +12,14 @@ namespace Acme.BL
         public Customer(int customerID)
         {
             CustomerID = customerID;
+            Addresses = new List<Address>();
         }
 
         public int CustomerID { get; private set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
-
-        public Address Address { get; set; }
+        public List<Address> Addresses { get; set; }
         public string FullName
         {
             get
