@@ -2,9 +2,9 @@ using System;
 
 namespace Acme.BL
 {
-    public class Product
+    public class Product : EntityBase
     {
-        public Product()
+        public Product() : this(0)
         {
 
         }
@@ -26,7 +26,7 @@ namespace Acme.BL
 
         public decimal? CurrentPrice { get; set; }
 
-        public bool Validate()
+        public override bool Validate()
         {
             bool isValid = true;
             if (string.IsNullOrWhiteSpace(Name))
