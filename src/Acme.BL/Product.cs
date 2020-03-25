@@ -37,6 +37,8 @@ namespace Acme.BL
             return isValid;
         }
 
+        public override string ToString() => $"{ProductID} {Name}";
+
         private string name;
 
     }

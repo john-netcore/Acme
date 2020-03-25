@@ -53,5 +53,7 @@ namespace Acme.BL
 
             return isValid;
         }
+
+        public override string ToString() => $"{CustomerID} {FullName}";
     }
 }
