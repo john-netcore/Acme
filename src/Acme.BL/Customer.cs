@@ -2,7 +2,7 @@
 
 namespace Acme.BL
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         public Customer() : this(0)
         {
@@ -43,7 +43,7 @@ namespace Acme.BL
             }
         }
 
-        public bool Validate()
+        public override bool Validate()
         {
             bool isValid = true;
             if (string.IsNullOrWhiteSpace(EmailAddress))
@@ -54,6 +54,9 @@ namespace Acme.BL
             return isValid;
         }
 
+        public string Log() => $"{CustomerID}: {FullName} Email: {EmailAddress} Status: {EntityState.ToString()}";
+
         public override string ToString() => $"{CustomerID} {FullName}";
+
     }
 }
