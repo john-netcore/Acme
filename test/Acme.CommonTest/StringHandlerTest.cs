@@ -9,10 +9,10 @@ namespace Acme.CommonTest
         public void InsertSpacesWithValidStringTest()
         {
             //Arrange
-            string input = "GiantMouseTrap";
+            string content = "GiantMouseTrap";
             string expected = "Giant Mouse Trap";
             //Act
-            string actual = StringHandler.InsertSpaces(input);
+            string actual = content.InsertSpaces();
             //Assert
             Assert.Equal(expected, actual);
         }
@@ -21,9 +21,9 @@ namespace Acme.CommonTest
         public void InsertSpacesWithNullValueTest()
         {
             //Arrange
-            string input = null;
+            string content = null;
             //Act
-            string actual = StringHandler.InsertSpaces(input);
+            string actual = content.InsertSpaces();
             //Assert
             Assert.Null(actual);
         }
@@ -32,10 +32,10 @@ namespace Acme.CommonTest
         public void InsertSpacesWithEmptyStringTest()
         {
             //Arrange
-            string input = string.Empty;
+            string content = string.Empty;
             string expected = string.Empty;
             //Act
-            string actual = StringHandler.InsertSpaces(input);
+            string actual = content.InsertSpaces();
             //Assert
             Assert.Equal(expected, actual);
         }
@@ -44,10 +44,10 @@ namespace Acme.CommonTest
         public void InsertSpacesWithAlreadyExistingSpacesTest()
         {
             //Arrange
-            string input = "Giant Mouse Trap";
+            string content = "Giant Mouse Trap";
             string expected = "Giant Mouse Trap";
             //Act
-            string actual = StringHandler.InsertSpaces(input);
+            string actual = content.InsertSpaces();
             //Assert
             Assert.Equal(expected, actual);
         }
@@ -56,10 +56,10 @@ namespace Acme.CommonTest
         public void InsertSpacesWithAlreadyExistingSpacesWithLowerCaseTest()
         {
             //Arrange
-            string input = "Giant mouse trap";
+            string content = "Giant mouse trap";
             string expected = "Giant mouse trap";
             //Act
-            string actual = StringHandler.InsertSpaces(input);
+            string actual = content.InsertSpaces();
             //Assert
             Assert.Equal(expected, actual);
         }
