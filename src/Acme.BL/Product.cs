@@ -20,7 +20,7 @@ namespace Acme.BL
         {
             get
             {
-                return StringHandler.InsertSpaces(name);
+                return name.InsertSpaces();
             }
             set { name = value; }
         }
