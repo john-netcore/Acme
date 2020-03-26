@@ -40,6 +40,8 @@ namespace Acme.BL
             return isValid;
         }
 
+        public string Log() => $"{ProductID}: {Name} Detail: {Description} Status: {EntityState.ToString()}";
+
         public override string ToString() => $"{ProductID} {Name}";
 
         private string name;
