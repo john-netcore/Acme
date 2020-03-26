@@ -14,7 +14,7 @@ namespace Acme.Common
 
             foreach (var letter in source)
             {
-                if (char.IsUpper(letter) && result.ToString() != string.Empty)
+                if (char.IsUpper(letter) && result.ToString() != string.Empty && !result.ToString().EndsWith(" "))
                 {
                     result.Append(" ");
                 }
