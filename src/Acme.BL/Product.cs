@@ -1,4 +1,4 @@
-using System;
+using Acme.Common;
 
 namespace Acme.BL
 {
@@ -18,7 +18,10 @@ namespace Acme.BL
 
         public string Name
         {
-            get { return name; }
+            get
+            {
+                return StringHandler.InsertSpaces(name);
+            }
             set { name = value; }
         }
 
