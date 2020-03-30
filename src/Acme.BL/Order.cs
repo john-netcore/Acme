@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Acme.Common;
 
 namespace Acme.BL
 {
-    public class Order
+    public class Order : EntityBase, ILoggable
     {
         public Order() : this(0)
         {
@@ -24,7 +25,7 @@ namespace Acme.BL
         public int ShippingAddressID { get; set; }
         public List<OrderItem> OrderItems { get; set; }
 
-        public bool Validate()
+        public override bool Validate()
         {
             bool isValid = true;
 
@@ -35,5 +36,7 @@ namespace Acme.BL
         }
 
         public override string ToString() => $"{OrderID} {OrderDate}";
+
+        public string Log() => $"{OrderID}: {OrderDate} Status: {EntityState.ToString()}";
     }
 }

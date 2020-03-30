@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Acme.Common;
 
 namespace Acme.BL
 {
-    public class Customer : EntityBase
+    public class Customer : EntityBase, ILoggable
     {
         public Customer() : this(0)
         {

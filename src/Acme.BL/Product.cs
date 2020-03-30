@@ -2,7 +2,7 @@ using Acme.Common;
 
 namespace Acme.BL
 {
-    public class Product : EntityBase
+    public class Product : EntityBase, ILoggable
     {
         public Product() : this(0)
         {
